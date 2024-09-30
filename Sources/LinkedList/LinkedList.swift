@@ -17,6 +17,8 @@ fileprivate class Node<T> {
 public class LinkedList<T> {
     private var head: Node<T>?
     private var tail: Node<T>?
+    
+    public init() { }
 }
 
 // Базовые свойства

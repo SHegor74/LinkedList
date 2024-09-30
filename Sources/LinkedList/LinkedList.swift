@@ -4,23 +4,23 @@
 import Foundation
 
 // Узел
-class Node<T> {
-    var value: T
-    weak var previous: Node<T>?
-    var next: Node<T>?
+fileprivate class Node<T> {
+    public var value: T
+    public weak var previous: Node<T>?
+    public var next: Node<T>?
     
-    init(_ value: T) {
+    public init(_ value: T) {
         self.value = value
     }
 }
 
-class LinkedList<T> {
+public class LinkedList<T> {
     private var head: Node<T>?
     private var tail: Node<T>?
 }
 
 // Базовые свойства
-extension LinkedList {
+public extension LinkedList {
     var isEmpty: Bool { head == nil }
     var first: T? { head?.value }
     var last: T? { tail?.value }
@@ -45,7 +45,7 @@ extension LinkedList {
     }
 
     // Добавление в конец
-    func append(_ value: T) {
+    public func append(_ value: T) {
         let newNode = Node(value)
         
         if let tail {
@@ -58,14 +58,14 @@ extension LinkedList {
     }
     
     // Получение значения по индексу
-    func value(_ index: Int) -> T? {
+    public func value(_ index: Int) -> T? {
         let node = nodeBy(index)
         return node?.value
     }
     
     // Удаление по индексу
     @discardableResult
-    func remove(at index: Int) -> T? {
+    public func remove(at index: Int) -> T? {
         guard let removedNode = nodeBy(index) else { return nil }
         
         let previous = removedNode.previous
@@ -89,7 +89,7 @@ extension LinkedList {
 
 // Печать значений
 extension LinkedList: CustomStringConvertible {
-    var description: String {
+    public var description: String {
         var text = "["
         var currentNode = head
         

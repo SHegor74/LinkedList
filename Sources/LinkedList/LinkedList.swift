@@ -6,8 +6,8 @@ import Foundation
 // Узел
 class Node<T> {
     var value: T
-    weak var previous: Node?
-    var next: Node?
+    weak var previous: Node<T>?
+    var next: Node<T>?
     
     init(_ value: T) {
         self.value = value
